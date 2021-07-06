@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'RTM-CollaboratAR (iOS)' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for RTM-CollaboratAR (iOS)
+  pod 'AgoraRtm_iOS'
+  pod 'AgoraAudio_iOS'
+end
+
+target 'RTM-CollaboratAR (macOS)' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for RTM-CollaboratAR (macOS)
+  pod 'AgoraRtm_macOS'
+  pod 'AgoraAudio_macOS'
+end
