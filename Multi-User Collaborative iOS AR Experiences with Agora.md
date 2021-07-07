@@ -8,7 +8,9 @@ CollaboratAR is an example project where people can either join an active sessio
 
 When joining a session, the users also join an Audio channel using Agora Audio SDK, so they can see each other's location as well as hearing them speaking.
 
-This is what the session might look like from the macOS view, which does not have Augmented Reality.
+![macos ios transform example](media/transform-objects-both.gif)
+
+This is what the session might look like from the macOS view, which does not have Augmented Reality:
 
 ![macOS VR Overview](media/vr-overview.png)
 
@@ -49,9 +51,19 @@ To see how this works, you can check out our in depth blog on how each part inte
 
 <link to blog>
 
+The full source code is available here:
+
+https://github.com/AgoraIO-Community/Collaborative-AR-RTM
+
 ## What You Could Do With This
 
 Using the techniques outlined in here you could create experiences for people to share ideas in AR or VR, as well as with a 2D experience. Anything that someone does on their own device anywhere in the world could easily be represented in another user's experience using Agora Real-time messaging.
 
 The same techniques could be used to make a multiplayer game, live interactive support, or something more basic like a live chat feature.
+
+## Other Resources <a name="other-resources"/>
+
+For more information about building applications using Agora Video and Audio Streaming SDKs, take a look at the [Agora Video Call Quickstart Guide](https://docs.agora.io/en/Video/start_call_ios?platform=iOS&utm_source=medium&utm_medium=blog&utm_campaign=swiftpm) and [Agora API Reference](https://docs.agora.io/en/Video/API%20Reference/oc/docs/headers/Agora-Objective-C-API-Overview.html?utm_source=medium&utm_medium=blog&utm_campaign=swiftpm).
+
+I also invite you to join the [Agora Developer Slack community](https://www.agora.io/en/join-slack/).
 

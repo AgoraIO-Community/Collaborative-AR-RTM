@@ -6,6 +6,10 @@ To see an overview of how the example works, check out this post:
 
 <link to intro post>
 
+And the full source code:
+
+https://github.com/AgoraIO-Community/Collaborative-AR-RTM
+
 ## What is Agora Real-time Messaging (RTM)?
 
 Agora Real-time Messaging is an SDK that lets you send data between devices that are connected to the network. These data could contain an encoded struct, plain text, or even larger files such ranging from PDFs to 3D files.
@@ -465,7 +469,7 @@ if messageType == .removeCollabModel {
 
 All of the above methods can be found in the full example project:
 
-
+https://github.com/AgoraIO-Community/Collaborative-AR-RTM
 
 Some of the methods contain additional code to aid the rest of the experience. The above explanations are focusing mainly on using Agora Real-time Messaging SDK to enable the remote collaboration.
 
@@ -473,4 +477,4 @@ If anything is unclear, please feel free to send me a [message on twitter](https
 
 ## Conclusion
 
-I hope you've enjoyed this post and the project that comes along with it
+I hope you've enjoyed this post and the project that comes along with it. The idea of this project is to showcase how Agora Real-time Messaging can be used to create interactive experiences with people around the world.

@@ -119,7 +119,7 @@ struct JoinCollab: View {
                 }, label: {
                     Text(
                         sharedIntroEntry.isNewChannel ?
-                            "Create" : "Proceed"
+                            "Create" : "Join"
                     ).frame(minWidth: 100).padding().background(Color.green).cornerRadius(7.0)
                 }).buttonStyle(PlainButtonStyle())
                 Spacer()
