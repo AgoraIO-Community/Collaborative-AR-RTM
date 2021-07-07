@@ -25,3 +25,7 @@ Check out the intro guide to see how the app works from a user perspective:
 Check out the in depth RTM guide to see how the app communicates through Agora's Real-time Messaging SDK:
 
 [Creating Collaborative AR Experiences with Agora](Creating&#32;Collaborative&#32;AR&#32;Experiences&#32;with&#32;Agora.md)
+
+## Credits
+
+- "low poly forest assets" (https://skfb.ly/6WMzp) by Konstantin_Keller is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
