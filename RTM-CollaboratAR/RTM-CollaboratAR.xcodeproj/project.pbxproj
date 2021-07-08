@@ -43,6 +43,7 @@
 		F3A6E24A26961914001F0851 /* desert_grass.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E23D26961914001F0851 /* desert_grass.usdz */; };
 		F3A6E24B26961914001F0851 /* desert_teepee.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E23E26961914001F0851 /* desert_teepee.usdz */; };
 		F3A6E24C26961914001F0851 /* desert_teepee.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E23E26961914001F0851 /* desert_teepee.usdz */; };
+		F3A6E24E26975391001F0851 /* CoachingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6E24D26975391001F0851 /* CoachingOverlayView.swift */; };
 		F3B4A6DE26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */; };
 		F3B4A6DF26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */; };
 		F3B7647526668BCD00258A16 /* GlobeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7647426668BCD00258A16 /* GlobeEntity.swift */; };
@@ -96,6 +97,7 @@
 		F3A6E23C26961914001F0851 /* desert_tree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = desert_tree.usdz; sourceTree = "<group>"; };
 		F3A6E23D26961914001F0851 /* desert_grass.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = desert_grass.usdz; sourceTree = "<group>"; };
 		F3A6E23E26961914001F0851 /* desert_teepee.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = desert_teepee.usdz; sourceTree = "<group>"; };
+		F3A6E24D26975391001F0851 /* CoachingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachingOverlayView.swift; sourceTree = "<group>"; };
 		F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollaborationExpEntity+RTM.swift"; sourceTree = "<group>"; };
 		F3B7647426668BCD00258A16 /* GlobeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobeEntity.swift; sourceTree = "<group>"; };
 		F3B7647726668C0400258A16 /* CollabSceneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollabSceneEntity.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				F3CD991426503B5F005D8C06 /* Info.plist */,
+				F3A6E24D26975391001F0851 /* CoachingOverlayView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				F300FBF12678E34E009A2B32 /* CollaboratARDelegateEntity.swift in Sources */,
 				F3905106266A51E800E2B8E7 /* CollabModel.swift in Sources */,
 				F300FBEE2678D30D009A2B32 /* ChannelData.swift in Sources */,
+				F3A6E24E26975391001F0851 /* CoachingOverlayView.swift in Sources */,
 				F388940E2680F47900DC6293 /* USDZPickerItem.swift in Sources */,
 				F3CD99352652AA7D005D8C06 /* CollaborationExpEntity.swift in Sources */,
 				F300FBEB2678B21E009A2B32 /* PeerEntity.swift in Sources */,

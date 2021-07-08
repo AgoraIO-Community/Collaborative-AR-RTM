@@ -164,7 +164,12 @@ struct ARViewInitial: MPViewRep {
         BoundingBoxComponent.registerComponent()
         CollaborationExpEntity.shared.arView = custy
         custy.positionEntities()
-        defer {RealityUI.enableGestures(.tap, on: custy)}
+        defer {
+            RealityUI.enableGestures(.tap, on: custy)
+            #if canImport(ARKit)
+            custy.addCoaching()
+            #endif
+        }
         return custy
     }
 
