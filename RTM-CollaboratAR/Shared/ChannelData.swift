@@ -8,10 +8,16 @@
 import AgoraRtmKit
 
 struct ChannelData: Codable {
+    // Name of the channel
     var channelName: String
+    // Channel ID used for Audio and RTM channel connections
     var channelID: String
+    // Position to be placed around the globe
     var position: SIMD3<Float>
+    // Image showing the type of room (forest, desert)
     var systemImage: String?
+    // Type of channel (forest, desert)
+    var channelType: String?
 }
 
 extension ChannelData {

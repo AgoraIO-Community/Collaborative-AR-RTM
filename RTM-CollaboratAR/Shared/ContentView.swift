@@ -47,10 +47,13 @@ struct ContentView: View {
                 if sharedIntroEntry.showUSDZTray {
                     ScrollView(.horizontal, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
                         HStack {
-                            ForEach(0..<sharedIntroEntry.usdzOptions.count) { idx in
-                                USDZPickerItem(usdzRoot: sharedIntroEntry.usdzOptions[idx], idx: idx, sharedIntroEntry: sharedIntroEntry)
+                            if let usdzGroup = sharedIntroEntry.usdzForRoom {
+                            ForEach(0..<usdzGroup.count) { idx in
+                                USDZPickerItem(
+                                    usdzRoot: usdzGroup[idx], idx: idx, sharedIntroEntry: sharedIntroEntry)
                                     .frame(width: 100, height: 100, alignment: .center)
                             }
+                        }
                         }
                         .padding(4)
 //                        .padding()
@@ -115,6 +118,7 @@ struct JoinCollab: View {
                 }).buttonStyle(PlainButtonStyle())
                 Spacer()
                 Button(action: {
+                    sharedIntroEntry.selectedUSDZ = 0
                     sharedIntroEntry.createChannel()
                 }, label: {
                     Text(

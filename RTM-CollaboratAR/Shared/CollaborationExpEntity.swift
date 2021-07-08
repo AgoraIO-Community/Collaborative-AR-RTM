@@ -20,10 +20,24 @@ class CollaborationExpEntity: ObservableObject {
     @Published var selectedBox: HasCollabModel?
     @Published var showUSDZTray: Bool = false
     @Published var selectedUSDZ: Int = 0
-    @Published var usdzOptions: [String] = [
+    @Published var usdzOptions: [String: [String]] = [
+        "Forest": [
         "forest_tree3", "forest_tree1", "forest_tree2",
-        "forest_shrub", "forest_rock"
+        "forest_shrub", "forest_rock"],
+        "Desert": [
+                "desert_tree", "desert_grass", "desert_rock1",
+                "desert_rock2", "desert_shrub1", "desert_shrub2",
+                "desert_teepee"
+            ]
     ]
+    var usdzForRoom: [String]? {
+        switch self.collabState {
+        case .collab(let collabData):
+            return self.usdzOptions[collabData.channelType!]
+        default:
+            return nil
+        }
+    }
     var roomStyles: [(displayname: String, systemName: String)] = [
         ("Forest", "leaf"),
         ("Desert", "sun.max")
@@ -99,6 +113,7 @@ class CollaborationExpEntity: ObservableObject {
 
         if channelData.channelID == "new" {
             channelData.channelID = UUID().uuidString
+            channelData.channelType = self.roomStyles[self.roomStyle].displayname
             channelData.systemImage = self.roomStyles[self.roomStyle].systemName
             self.sendCollabChannel(
                 channelData, to: self.channels.lobby!

@@ -44,6 +44,7 @@ struct USDZPickerItem: View {
         #endif
 
         let request = QLThumbnailGenerator.Request(fileAt: url, size: size, scale: scale, representationTypes: .thumbnail)
+
         QLThumbnailGenerator.shared.generateRepresentations(for: request) { thumbnailRep, repType, err in
             DispatchQueue.main.async {
                 guard let thumbnail = thumbnailRep, err == nil else {

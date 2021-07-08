@@ -43,8 +43,11 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
 
     var tapAction: ((HasClick, SIMD3<Float>?) -> Void)? = { clickedScene, clickLoc in
         guard let clickLoc = clickLoc, let sceneEntity = clickedScene as? CollabSceneEntity else { return }
+        let collabExp = sceneEntity.collabExpEntity
         let localLoc = sceneEntity.collabBase.convert(position: clickLoc, from: nil)
-        var usdzToAdd = sceneEntity.collabExpEntity.usdzOptions[sceneEntity.collabExpEntity.selectedUSDZ]
+        guard let usdzToAdd = collabExp.usdzForRoom?[collabExp.selectedUSDZ] else {
+            fatalError("Invalid room joining: \(collabExp.roomStyles[collabExp.roomStyle].displayname)")
+        }
         let newCollabModel = CollabModel(
             with: ModelData(
                 id: UUID().uuidString, usdz: usdzToAdd,
