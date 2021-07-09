@@ -5,7 +5,7 @@
 //  Created by Max Cobb on 08/07/2021.
 //
 
-#if canImport(ARKit)
+#if canImport(ARKit) && !targetEnvironment(simulator)
 import ARKit
 
 extension CustomARView: ARCoachingOverlayViewDelegate {

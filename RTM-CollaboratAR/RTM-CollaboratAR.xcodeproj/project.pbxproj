@@ -44,6 +44,10 @@
 		F3A6E24B26961914001F0851 /* desert_teepee.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E23E26961914001F0851 /* desert_teepee.usdz */; };
 		F3A6E24C26961914001F0851 /* desert_teepee.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E23E26961914001F0851 /* desert_teepee.usdz */; };
 		F3A6E24E26975391001F0851 /* CoachingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6E24D26975391001F0851 /* CoachingOverlayView.swift */; };
+		F3A6E2502698427C001F0851 /* desert_ground.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E24F2698427C001F0851 /* desert_ground.usdz */; };
+		F3A6E2512698427C001F0851 /* desert_ground.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E24F2698427C001F0851 /* desert_ground.usdz */; };
+		F3A6E253269848A0001F0851 /* forest_ground.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E252269848A0001F0851 /* forest_ground.usdz */; };
+		F3A6E254269848A0001F0851 /* forest_ground.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E252269848A0001F0851 /* forest_ground.usdz */; };
 		F3B4A6DE26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */; };
 		F3B4A6DF26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */; };
 		F3B7647526668BCD00258A16 /* GlobeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7647426668BCD00258A16 /* GlobeEntity.swift */; };
@@ -98,6 +102,8 @@
 		F3A6E23D26961914001F0851 /* desert_grass.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = desert_grass.usdz; sourceTree = "<group>"; };
 		F3A6E23E26961914001F0851 /* desert_teepee.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = desert_teepee.usdz; sourceTree = "<group>"; };
 		F3A6E24D26975391001F0851 /* CoachingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachingOverlayView.swift; sourceTree = "<group>"; };
+		F3A6E24F2698427C001F0851 /* desert_ground.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = desert_ground.usdz; sourceTree = "<group>"; };
+		F3A6E252269848A0001F0851 /* forest_ground.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = forest_ground.usdz; sourceTree = "<group>"; };
 		F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollaborationExpEntity+RTM.swift"; sourceTree = "<group>"; };
 		F3B7647426668BCD00258A16 /* GlobeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobeEntity.swift; sourceTree = "<group>"; };
 		F3B7647726668C0400258A16 /* CollabSceneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollabSceneEntity.swift; sourceTree = "<group>"; };
@@ -226,11 +232,13 @@
 		F3CD99372652BF4F005D8C06 /* USDZ */ = {
 			isa = PBXGroup;
 			children = (
+				F3A6E252269848A0001F0851 /* forest_ground.usdz */,
 				F3C9DB3C268357F300114DF2 /* forest_rock.usdz */,
 				F3C9DB40268357F300114DF2 /* forest_shrub.usdz */,
 				F3C9DB3E268357F300114DF2 /* forest_tree1.usdz */,
 				F3C9DB4E26835ACE00114DF2 /* forest_tree2.usdz */,
 				F3C9DB3F268357F300114DF2 /* forest_tree3.usdz */,
+				F3A6E24F2698427C001F0851 /* desert_ground.usdz */,
 				F3A6E23D26961914001F0851 /* desert_grass.usdz */,
 				F3A6E23A26961913001F0851 /* desert_rock1.usdz */,
 				F3A6E23B26961913001F0851 /* desert_rock2.usdz */,
@@ -341,9 +349,11 @@
 				F3A23F212680C0C0005FD3CA /* mic.usdz in Resources */,
 				F3A6E24926961914001F0851 /* desert_grass.usdz in Resources */,
 				F3A6E24B26961914001F0851 /* desert_teepee.usdz in Resources */,
+				F3A6E253269848A0001F0851 /* forest_ground.usdz in Resources */,
 				F3C9DB49268357F300114DF2 /* forest_shrub.usdz in Resources */,
 				F3A6E23F26961914001F0851 /* desert_shrub1.usdz in Resources */,
 				F3C9DB47268357F300114DF2 /* forest_tree3.usdz in Resources */,
+				F3A6E2502698427C001F0851 /* desert_ground.usdz in Resources */,
 				F3A6E24126961914001F0851 /* desert_shrub2.usdz in Resources */,
 				F3CD992126503B5F005D8C06 /* Assets.xcassets in Resources */,
 				F3C9DB4F26835ACE00114DF2 /* forest_tree2.usdz in Resources */,
@@ -364,9 +374,11 @@
 				F3A23F222680C0C0005FD3CA /* mic.usdz in Resources */,
 				F3A6E24A26961914001F0851 /* desert_grass.usdz in Resources */,
 				F3A6E24C26961914001F0851 /* desert_teepee.usdz in Resources */,
+				F3A6E254269848A0001F0851 /* forest_ground.usdz in Resources */,
 				F3C9DB4A268357F300114DF2 /* forest_shrub.usdz in Resources */,
 				F3A6E24026961914001F0851 /* desert_shrub1.usdz in Resources */,
 				F3C9DB48268357F300114DF2 /* forest_tree3.usdz in Resources */,
+				F3A6E2512698427C001F0851 /* desert_ground.usdz in Resources */,
 				F3A6E24226961914001F0851 /* desert_shrub2.usdz in Resources */,
 				F3CD992226503B5F005D8C06 /* Assets.xcassets in Resources */,
 				F3C9DB5026835ACE00114DF2 /* forest_tree2.usdz in Resources */,
@@ -626,7 +638,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 278494H572;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -650,7 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 278494H572;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;

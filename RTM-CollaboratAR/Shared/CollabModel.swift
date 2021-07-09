@@ -17,11 +17,9 @@ struct CollabComponent: Component {
     var showBoundingBox: Bool = false
 }
 
-protocol HasAdvancedModel: HasModel {}
+protocol HasAdvancedModel: HasModel, HasCollision {}
 extension HasAdvancedModel {
     func fetchUSDZ(named: String, completion: (() -> Void)? = nil) {
-        self.model = ModelComponent(mesh: .generateSphere(radius: 0.05), materials: [])
-//        return
         ModelLoader.checkStatus(of: named) { modelComponent in
             self.model = modelComponent
             completion?()
@@ -61,7 +59,7 @@ class ModelLoader {
                 print("\(modelName) model found")
             case .failure(let err):
                 cancellable?.cancel()
-                fatalError(err.localizedDescription)
+                print("could not load model: \(err.localizedDescription)")
             }
         }, receiveValue: { loadedModel in
             guard let modelComp = loadedModel.model else {
@@ -103,7 +101,17 @@ extension HasCollabModel {
         ModelData(id: self.name, usdz: self.collab.usdz, transform: self.transform, owner: self.collab.owner)
     }
 }
-class AdvancedModelEntity: Entity, HasAdvancedModel {}
+class AdvancedModelEntity: Entity, HasAdvancedModel {
+    init(usdz: String, defaultModel: ModelComponent) {
+        super.init()
+        self.model = defaultModel
+        self.fetchUSDZ(named: usdz)
+    }
+
+    required init() {
+        super.init()
+    }
+}
 class CollabModel: Entity, HasCollabModel {
     var tapAction: ((HasClick, SIMD3<Float>?) -> Void)? = { clickedEnt, _ in
         guard let collabEnt = clickedEnt as? CollabModel,
@@ -120,6 +128,7 @@ class CollabModel: Entity, HasCollabModel {
         self.collab = CollabComponent(isFree: modelData.isFree, usdz: modelData.usdz, owner: modelData.owner)
         self.transform = modelData.transform
         self.name = modelData.id
+        self.model = ModelComponent(mesh: .generateSphere(radius: 0.05), materials: [])
         self.fetchUSDZ(named: self.collab.usdz) {
             self.setCollision()
         }

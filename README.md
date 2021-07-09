@@ -28,4 +28,5 @@ Check out the in depth RTM guide to see how the app communicates through Agora's
 
 ## Credits
 
-- "low poly forest assets" (https://skfb.ly/6WMzp) by Konstantin_Keller is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "low poly forest assets" (https://skfb.ly/6WMzp) by [Konstantin_Keller](https://sketchfab.com/Konstantin_Keller) is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Low Poly Desert" (https://skfb.ly/6SIUv) by [marzipanne](https://sketchfab.com/marzipanne) is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

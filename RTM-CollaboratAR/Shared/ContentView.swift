@@ -166,7 +166,7 @@ struct ARViewInitial: MPViewRep {
         custy.positionEntities()
         defer {
             RealityUI.enableGestures(.tap, on: custy)
-            #if canImport(ARKit)
+            #if canImport(ARKit) && !targetEnvironment(simulator)
             custy.addCoaching()
             #endif
         }

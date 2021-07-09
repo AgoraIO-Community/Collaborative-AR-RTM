@@ -40,8 +40,12 @@ struct ModelData: Codable {
 
 class CollabSceneEntity: Entity, HasAnchoring, HasClick {
     @ObservedObject var collabExpEntity: CollaborationExpEntity
-
+    static var defaultFloor = ModelComponent(
+        mesh: .generatePlane(width: 1, depth: 1),
+        materials: [UnlitMaterial(color: Material.Color.cyan.withAlphaComponent(0.3))]
+    )
     var tapAction: ((HasClick, SIMD3<Float>?) -> Void)? = { clickedScene, clickLoc in
+        // Add an entity to the scene
         guard let clickLoc = clickLoc, let sceneEntity = clickedScene as? CollabSceneEntity else { return }
         let collabExp = sceneEntity.collabExpEntity
         let localLoc = sceneEntity.collabBase.convert(position: clickLoc, from: nil)
@@ -56,6 +60,8 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
                     translation: localLoc),
                 owner: sceneEntity.collabExpEntity.rtmID)
         )
+        // When adding a new box, un-select last selected
+        collabExp.unselectSelected()
         sceneEntity.collabBase.addChild(newCollabModel)
         sceneEntity.collabExpEntity.sendCollabData(for: newCollabModel)
     }
@@ -64,9 +70,18 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
     #if os(iOS) && !targetEnvironment(simulator)
     var gestures: [EntityGestureRecognizer] = []
     #endif
-    var collabBase = ModelEntity(mesh: .generatePlane(width: 1, depth: 1), materials: [UnlitMaterial(color: Material.Color.cyan.withAlphaComponent(0.3))])
+    var collabBase: HasModel & HasCollision
     init(collabExpEntity: CollaborationExpEntity) {
         self.collabExpEntity = collabExpEntity
+        if let usdzFloor = collabExpEntity.floorForRoom {
+            self.collabBase = AdvancedModelEntity(
+                usdz: usdzFloor,
+                defaultModel: CollabSceneEntity.defaultFloor
+            )
+        } else {
+            self.collabBase = ModelEntity()
+            self.collabBase.model = CollabSceneEntity.defaultFloor
+        }
         super.init()
         collabBase.position.y = 0.05
         self.addChild(collabBase)

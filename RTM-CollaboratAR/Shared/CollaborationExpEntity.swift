@@ -38,6 +38,16 @@ class CollaborationExpEntity: ObservableObject {
             return nil
         }
     }
+    var floorForRoom: String? {
+        switch self.collabState {
+        case .collab(let collabData):
+            if let chType = collabData.channelType {
+                return "\(chType.lowercased())_ground"
+            }
+        default: break
+        }
+        return nil
+    }
     var roomStyles: [(displayname: String, systemName: String)] = [
         ("Forest", "leaf"),
         ("Desert", "sun.max")
@@ -276,15 +286,10 @@ extension CollaborationExpEntity {
     func showBox(around entity: HasCollabModel) {
         let bbox = entity.visualBounds(relativeTo: entity)
         var bbentity: BBEntity! = self.selectedBox?.findEntity(named: BBEntity.bbName) as? BBEntity
-        if self.selectedBox != nil {
-            self.selectedBox!.showBoundingBox = false
-            self.sendCollabData(for: self.selectedBox!)
-            #if os(iOS) && !targetEnvironment(simulator)
-            self.collab?.gestures.forEach { self.arView?.removeGestureRecognizer($0) }
-            self.collab?.gestures.removeAll()
-            #endif
-            if self.selectedBox?.name == entity.name {
-                self.selectedBox = nil
+        if let lastSelectedName = self.selectedBox?.name {
+            self.unselectSelected()
+            if lastSelectedName == entity.name {
+                // If we tapped the same box, break out after unselecting
                 return
             }
         }
@@ -300,6 +305,18 @@ extension CollaborationExpEntity {
         }
         #endif
         entity.addChild(bbentity)
+    }
+    func unselectSelected() {
+        // If we have selected a box before, unselect it and remove gestures
+        if let selectedBox = self.selectedBox {
+            selectedBox.showBoundingBox = false
+            self.sendCollabData(for: selectedBox)
+            #if os(iOS) && !targetEnvironment(simulator)
+            self.collab?.gestures.forEach { self.arView?.removeGestureRecognizer($0) }
+            self.collab?.gestures.removeAll()
+            #endif
+            self.selectedBox = nil
+        }
     }
     @objc func updatePositions() {
         if let camTransform = self.arView?.cameraTransform,
