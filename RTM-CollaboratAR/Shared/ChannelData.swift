@@ -18,6 +18,8 @@ struct ChannelData: Codable {
     var systemImage: String?
     // Type of channel (forest, desert)
     var channelType: String?
+    /// Is a special type of room or not
+    var isSpecial: Bool = false
 }
 
 extension ChannelData {

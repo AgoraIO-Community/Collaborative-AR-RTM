@@ -11,6 +11,7 @@ import Combine
 import RealityUI
 
 class GlobeEntity: Entity, HasAnchoring, HasClick {
+    var satellite: SatelliteEntity?
     var tapAction: ((HasClick, SIMD3<Float>?) -> Void)? = { clicked, pos in
         guard let globeEnt = clicked as? GlobeEntity, let clickedPos = pos else { return }
         var globeRadius: Float = 0.5// globeEnt.globeModel.visualBounds(relativeTo: globeEnt).boundingRadius
@@ -70,6 +71,7 @@ class GlobeEntity: Entity, HasAnchoring, HasClick {
                               translation: self.globeModel.position
                     )]
                 )
+                self.spawnSatellite()
             }
         })
         self.globeModel.move(to: earthTransform, relativeTo: self, duration: 1, timingFunction: .linear)
@@ -77,6 +79,12 @@ class GlobeEntity: Entity, HasAnchoring, HasClick {
 //            var collabLoc = SIMD3<Float>.random(in: -1...1).setLength(to: 1.02)
 //            self.spawnHitpoint(channelData: ChannelData(channelName: "test", channelID: "uid3", position: collabLoc))
 //        }
+    }
+
+    func spawnSatellite() {
+        let satelliteModel = SatelliteEntity()
+        self.satellite = satelliteModel
+        self.globeModel.addChild(satelliteModel)
     }
 
     func spawnHitpoint(channelData: ChannelData) {

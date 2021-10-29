@@ -49,6 +49,9 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
         guard let clickLoc = clickLoc, let sceneEntity = clickedScene as? CollabSceneEntity else { return }
         let collabExp = sceneEntity.collabExpEntity
         let localLoc = sceneEntity.collabBase.convert(position: clickLoc, from: nil)
+        if collabExp.selectedUSDZ >= (collabExp.usdzForRoom ?? []).count {
+            return
+        }
         guard let usdzToAdd = collabExp.usdzForRoom?[collabExp.selectedUSDZ] else {
             fatalError("Invalid room joining: \(collabExp.roomStyles[collabExp.roomStyle].displayname)")
         }
@@ -71,6 +74,7 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
     var gestures: [EntityGestureRecognizer] = []
     #endif
     var collabBase: HasModel & HasCollision
+    var peerBase = Entity()
     init(collabExpEntity: CollaborationExpEntity) {
         self.collabExpEntity = collabExpEntity
         if let usdzFloor = collabExpEntity.floorForRoom {
@@ -78,6 +82,30 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
                 usdz: usdzFloor,
                 defaultModel: CollabSceneEntity.defaultFloor
             )
+            if usdzFloor == "awe_ground" {
+                var nightSkyMat = SimpleMaterial()
+                if let tex = try? TextureResource.load(named: "2k_stars_milky_way") {
+                    if #available(iOS 15.0, macOS 12.0, *) {
+                        nightSkyMat.color.texture = .init(tex)
+                        let mtlLibrary = MTLCreateSystemDefaultDevice()!
+                          .makeDefaultLibrary()!
+                        // Fetch the "fadeCircle" surface shader
+                        let surfaceShader = CustomMaterial.SurfaceShader(
+                           named: "fadeCircle", in: mtlLibrary
+                        )
+                        if var shaderMat = try? CustomMaterial(from: nightSkyMat, surfaceShader: surfaceShader) {
+                            shaderMat.baseColor.texture = .init(tex)
+                            shaderMat.blending = CustomMaterial.Blending.transparent(opacity: 1.0)
+                            self.collabBase = ModelEntity(mesh: .generatePlane(width: 3, depth: 3), materials: [shaderMat])
+                        } else {
+                            self.collabBase = ModelEntity(mesh: .generatePlane(width: 3, depth: 3, cornerRadius: 1.5), materials: [nightSkyMat])
+                        }
+                    } else {
+                        nightSkyMat.baseColor = .texture(tex)
+                        self.collabBase = ModelEntity(mesh: .generatePlane(width: 3, depth: 3, cornerRadius: 1.5), materials: [nightSkyMat])
+                    }
+                }
+            }
         } else {
             self.collabBase = ModelEntity()
             self.collabBase.model = CollabSceneEntity.defaultFloor
@@ -85,6 +113,7 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
         super.init()
         collabBase.position.y = 0.05
         self.addChild(collabBase)
+        self.collabBase.addChild(peerBase)
     }
     required convenience init() {
         self.init(collabExpEntity: CollaborationExpEntity.shared)
@@ -97,13 +126,14 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
     }
 
     func update(with peerData: PeerData) {
-        if let child = self.findEntity(named: peerData.rtmID) as? PeerEntity {
+        if let rtcID = peerData.rtcID, rtcID != 0 {
+            self.collabExpEntity.rtmToRtc[peerData.rtmID] = rtcID
+            self.collabExpEntity.rtcToRtm[rtcID] = peerData.rtmID
+        }
+        if let child = self.peerBase.findEntity(named: peerData.rtmID) as? PeerEntity {
             child.update(with: peerData)
         } else {
             self.createPeerEntity(with: peerData)
-        }
-        if let rtcID = peerData.rtcID, rtcID != 0 {
-            self.collabExpEntity.rtcToRtm[rtcID] = peerData.rtmID
         }
     }
     func update(with models: [ModelData]) {
@@ -117,8 +147,11 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
     }
     func createPeerEntity(with peerData: PeerData) {
         let modelEnt = PeerEntity(with: peerData)
+        if let rtcID = peerData.rtcID {
+            modelEnt.audioEnabled = self.collabExpEntity.micEnabled[rtcID] ?? false
+        }
         DispatchQueue.main.async {
-            self.collabBase.addChild(modelEnt)
+            self.peerBase.addChild(modelEnt)
         }
     }
     func createModelEntity(with modelData: ModelData) {
@@ -145,5 +178,19 @@ class CollabSceneEntity: Entity, HasAnchoring, HasClick {
         )
         self.collabExpEntity.showUSDZTray = true
         self.collabExpEntity.fetchCollabData(for: self)
+        switch self.collabExpEntity.collabState {
+        case .collab(data: let data):
+            if data.isSpecial, let collabBase = self.collabExpEntity.collab?.collabBase {
+                // TODO: ADD SPECIAL
+                let newSolar = SolarSystem()
+                collabBase.addChild(newSolar)
+                newSolar.generateAllPlanets()
+                newSolar.move(
+                    to: Transform(scale: .one / 10, rotation: simd_quatf(angle: 0, axis: [0, 1, 0]), translation: [0, 0.4, 0]),
+                    relativeTo: collabBase, duration: 1
+                )
+            }
+        default: break
+        }
     }
 }

@@ -42,8 +42,11 @@ class CollaboratARDelegateEntity: NSObject, AgoraRtmDelegate, AgoraRtmChannelDel
                 }
                 CollaborationExpEntity.shared.collab?.update(with: [modelData])
             case .peerUpdate:
-                let peerData = try! JSONDecoder().decode(PeerData.self, from: rawMessage.rawData)
-                CollaborationExpEntity.shared.collab?.update(with: peerData)
+                // USDZ tray is only shown when the world has been set
+                if CollaborationExpEntity.shared.showUSDZTray {
+                    let peerData = try! JSONDecoder().decode(PeerData.self, from: rawMessage.rawData)
+                    CollaborationExpEntity.shared.collab?.update(with: peerData)
+                }
             case .channelAvailable:
                 switch CollaborationExpEntity.shared.collabState {
                 case .globe:
@@ -115,7 +118,9 @@ class CollaboratARDelegateEntity: NSObject, AgoraRtmDelegate, AgoraRtmChannelDel
                 if self.moreSeniorMembers.contains(member.userId) {
                     self.moreSeniorMembers.remove(member.userId)
                 }
-                CollaborationExpEntity.shared.collab?.findEntity(named: member.userId)?.removeFromParent()
+                CollaborationExpEntity.shared.collab?.peerBase.findEntity(
+                    named: member.userId
+                )?.removeFromParent()
             }
         default: break
         }
@@ -125,8 +130,10 @@ class CollaboratARDelegateEntity: NSObject, AgoraRtmDelegate, AgoraRtmChannelDel
 extension CollaboratARDelegateEntity: AgoraRtcEngineDelegate {
     func rtcEngine(_ engine: AgoraRtcEngineKit, activeSpeaker speakerUid: UInt) {}
     func rtcEngine(_ engine: AgoraRtcEngineKit, remoteAudioStateChangedOfUid uid: UInt, state: AgoraAudioRemoteState, reason: AgoraAudioRemoteStateReason, elapsed: Int) {
-        if state == .stopped || state == .starting {
-            CollaborationExpEntity.shared.findPeerEntity(for: uid)?.audioEnabled = state == .starting
+        if state == .stopped || state == .starting || state == .decoding {
+            let isEnabled = state == .starting || state == .decoding
+            CollaborationExpEntity.shared.micEnabled[uid] = isEnabled
+            CollaborationExpEntity.shared.findPeerEntity(for: uid)?.audioEnabled = isEnabled
         }
     }
     func rtcEngine(_ engine: AgoraRtcEngineKit, didJoinChannel channel: String, withUid uid: UInt, elapsed: Int) {
@@ -137,6 +144,6 @@ extension CollaboratARDelegateEntity: AgoraRtcEngineDelegate {
 extension CollaborationExpEntity {
     func findPeerEntity(for uid: UInt) -> PeerEntity? {
         guard let rtmID = self.rtcToRtm[uid] else { return nil }
-        return self.collab?.findEntity(named: rtmID) as? PeerEntity
+        return self.collab?.collabBase.findEntity(named: rtmID) as? PeerEntity
     }
 }

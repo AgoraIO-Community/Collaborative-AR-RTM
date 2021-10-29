@@ -45,7 +45,25 @@ struct ContentView: View {
                     .padding()
                 }
                 if sharedIntroEntry.showUSDZTray {
-                    ScrollView(.horizontal, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
+                    Button(action: {
+                        CollaborationExpEntity.shared.localMicEnabled.toggle()
+                        if CollaborationExpEntity.shared.localMicEnabled {
+                            CollaborationExpEntity.shared.rtcKit.muteLocalAudioStream(
+                                !CollaborationExpEntity.shared.localMicEnabled
+                            )
+                        }
+                    }, label: {
+                        HStack {
+                            Spacer()
+                        Image(
+                            systemName: CollaborationExpEntity.shared.localMicEnabled ?
+                            "mic" : "mic.slash"
+                        ).foregroundColor(.white).padding()
+                            .background(Color.blue)
+                            .clipShape(Circle()).padding()
+                        }
+                    })
+                    ScrollView(.horizontal, showsIndicators: true, content: {
                         HStack {
                             if let usdzGroup = sharedIntroEntry.usdzForRoom {
                             ForEach(0..<usdzGroup.count) { idx in
@@ -53,7 +71,7 @@ struct ContentView: View {
                                     usdzRoot: usdzGroup[idx], idx: idx, sharedIntroEntry: sharedIntroEntry)
                                     .frame(width: 100, height: 100, alignment: .center)
                             }
-                        }
+                            }
                         }
                         .padding(4)
 //                        .padding()
@@ -94,6 +112,9 @@ struct JoinCollab: View {
     @ObservedObject var sharedIntroEntry: CollaborationExpEntity
     var body: some View {
         VStack {
+            if sharedIntroEntry.clickedChannelData?.isSpecial == true {
+                Text(sharedIntroEntry.clickedChannelData?.channelName ?? "Special Room")
+            }
             Image(
                 systemName: sharedIntroEntry.clickedChannelData?.systemImage
                     ?? sharedIntroEntry.roomStyles[sharedIntroEntry.roomStyle].systemName

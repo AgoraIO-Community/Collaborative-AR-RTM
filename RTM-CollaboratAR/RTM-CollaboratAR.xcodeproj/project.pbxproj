@@ -15,12 +15,10 @@
 		F300FBEF2678D30D009A2B32 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300FBED2678D30D009A2B32 /* ChannelData.swift */; };
 		F300FBF12678E34E009A2B32 /* CollaboratARDelegateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300FBF02678E34E009A2B32 /* CollaboratARDelegateEntity.swift */; };
 		F300FBF22678E34E009A2B32 /* CollaboratARDelegateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300FBF02678E34E009A2B32 /* CollaboratARDelegateEntity.swift */; };
-		F32DCB7A2677764B007D09E4 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F32DCB792677764B007D09E4 /* SwiftPackageProductDependency */; };
-		F32DCB7C26777667007D09E4 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F32DCB7B26777667007D09E4 /* SwiftPackageProductDependency */; };
+		F31C303A272AFC4800F7002D /* SolarFloorShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = F31C3039272AFC4800F7002D /* SolarFloorShaders.metal */; };
+		F31C303B272AFC4800F7002D /* SolarFloorShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = F31C3039272AFC4800F7002D /* SolarFloorShaders.metal */; };
 		F3538090268234AA00B4277E /* globe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F353808F268234AA00B4277E /* globe.usdz */; };
 		F3538091268234AA00B4277E /* globe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F353808F268234AA00B4277E /* globe.usdz */; };
-		F353FEB726CD5D9E00EDAA9C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F353FEB626CD5D9E00EDAA9C /* SwiftPackageProductDependency */; };
-		F353FEBA26CD5DCD00EDAA9C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F353FEB926CD5DCD00EDAA9C /* SwiftPackageProductDependency */; };
 		F388940E2680F47900DC6293 /* USDZPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388940D2680F47900DC6293 /* USDZPickerItem.swift */; };
 		F388940F2680F47900DC6293 /* USDZPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388940D2680F47900DC6293 /* USDZPickerItem.swift */; };
 		F3905106266A51E800E2B8E7 /* CollabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3905105266A51E800E2B8E7 /* CollabModel.swift */; };
@@ -50,6 +48,9 @@
 		F3A6E2512698427C001F0851 /* desert_ground.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E24F2698427C001F0851 /* desert_ground.usdz */; };
 		F3A6E253269848A0001F0851 /* forest_ground.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E252269848A0001F0851 /* forest_ground.usdz */; };
 		F3A6E254269848A0001F0851 /* forest_ground.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3A6E252269848A0001F0851 /* forest_ground.usdz */; };
+		F3AC48F527294D4C00CE2B4B /* SolarSystemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AC48F427294D4C00CE2B4B /* SolarSystemEntity.swift */; };
+		F3AC48F627294D4C00CE2B4B /* SolarSystemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AC48F427294D4C00CE2B4B /* SolarSystemEntity.swift */; };
+		F3AC48F9272AB4CC00CE2B4B /* RealityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AC48F7272AB47300CE2B4B /* RealityFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F3B4A6DE26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */; };
 		F3B4A6DF26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */; };
 		F3B7647526668BCD00258A16 /* GlobeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7647426668BCD00258A16 /* GlobeEntity.swift */; };
@@ -68,6 +69,14 @@
 		F3C9DB4A268357F300114DF2 /* forest_shrub.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3C9DB40268357F300114DF2 /* forest_shrub.usdz */; };
 		F3C9DB4F26835ACE00114DF2 /* forest_tree2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3C9DB4E26835ACE00114DF2 /* forest_tree2.usdz */; };
 		F3C9DB5026835ACE00114DF2 /* forest_tree2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3C9DB4E26835ACE00114DF2 /* forest_tree2.usdz */; };
+		F3CA97C72728165F002C36AD /* SatelliteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA97C62728165F002C36AD /* SatelliteEntity.swift */; };
+		F3CA97C827281660002C36AD /* SatelliteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA97C62728165F002C36AD /* SatelliteEntity.swift */; };
+		F3CA97CC27281CC9002C36AD /* RealityUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3CA97CB27281CC9002C36AD /* RealityUI */; };
+		F3CA97CE27281CDF002C36AD /* RealityUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3CA97CD27281CDF002C36AD /* RealityUI */; };
+		F3CA97D127281D58002C36AD /* AgoraRtcKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3CA97D027281D58002C36AD /* AgoraRtcKit */; };
+		F3CA97D427281DFF002C36AD /* AgoraRtmKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3CA97D327281DFF002C36AD /* AgoraRtmKit */; };
+		F3CA97D627282F93002C36AD /* Satellite_low_poly.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3CA97D527282F92002C36AD /* Satellite_low_poly.usdz */; };
+		F3CA97D727282F93002C36AD /* Satellite_low_poly.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3CA97D527282F92002C36AD /* Satellite_low_poly.usdz */; };
 		F3CD991D26503B5F005D8C06 /* RTM_CollaboratARApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD990A26503B53005D8C06 /* RTM_CollaboratARApp.swift */; };
 		F3CD991E26503B5F005D8C06 /* RTM_CollaboratARApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD990A26503B53005D8C06 /* RTM_CollaboratARApp.swift */; };
 		F3CD991F26503B5F005D8C06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD990B26503B53005D8C06 /* ContentView.swift */; };
@@ -90,6 +99,7 @@
 		F300FBEA2678B21E009A2B32 /* PeerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerEntity.swift; sourceTree = "<group>"; };
 		F300FBED2678D30D009A2B32 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
 		F300FBF02678E34E009A2B32 /* CollaboratARDelegateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratARDelegateEntity.swift; sourceTree = "<group>"; };
+		F31C3039272AFC4800F7002D /* SolarFloorShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = SolarFloorShaders.metal; sourceTree = "<group>"; };
 		F353808F268234AA00B4277E /* globe.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = globe.usdz; sourceTree = "<group>"; };
 		F388940D2680F47900DC6293 /* USDZPickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZPickerItem.swift; sourceTree = "<group>"; };
 		F3905105266A51E800E2B8E7 /* CollabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollabModel.swift; sourceTree = "<group>"; };
@@ -106,6 +116,8 @@
 		F3A6E24D26975391001F0851 /* CoachingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachingOverlayView.swift; sourceTree = "<group>"; };
 		F3A6E24F2698427C001F0851 /* desert_ground.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = desert_ground.usdz; sourceTree = "<group>"; };
 		F3A6E252269848A0001F0851 /* forest_ground.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = forest_ground.usdz; sourceTree = "<group>"; };
+		F3AC48F427294D4C00CE2B4B /* SolarSystemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemEntity.swift; sourceTree = "<group>"; };
+		F3AC48F7272AB47300CE2B4B /* RealityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityFoundation.framework; path = System/Library/Frameworks/RealityFoundation.framework; sourceTree = SDKROOT; };
 		F3B4A6DD26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollaborationExpEntity+RTM.swift"; sourceTree = "<group>"; };
 		F3B7647426668BCD00258A16 /* GlobeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobeEntity.swift; sourceTree = "<group>"; };
 		F3B7647726668C0400258A16 /* CollabSceneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollabSceneEntity.swift; sourceTree = "<group>"; };
@@ -115,6 +127,8 @@
 		F3C9DB3F268357F300114DF2 /* forest_tree3.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = forest_tree3.usdz; sourceTree = "<group>"; };
 		F3C9DB40268357F300114DF2 /* forest_shrub.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = forest_shrub.usdz; sourceTree = "<group>"; };
 		F3C9DB4E26835ACE00114DF2 /* forest_tree2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = forest_tree2.usdz; sourceTree = "<group>"; };
+		F3CA97C62728165F002C36AD /* SatelliteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteEntity.swift; sourceTree = "<group>"; };
+		F3CA97D527282F92002C36AD /* Satellite_low_poly.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Satellite_low_poly.usdz; sourceTree = "<group>"; };
 		F3CD990A26503B53005D8C06 /* RTM_CollaboratARApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTM_CollaboratARApp.swift; sourceTree = "<group>"; };
 		F3CD990B26503B53005D8C06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3CD990C26503B5F005D8C06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,10 +146,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F353FEBA26CD5DCD00EDAA9C /* BuildFile in Frameworks */,
-				F353FEB726CD5D9E00EDAA9C /* BuildFile in Frameworks */,
-				F32DCB7A2677764B007D09E4 /* BuildFile in Frameworks */,
+				F3CA97D427281DFF002C36AD /* AgoraRtmKit in Frameworks */,
+				F3CA97D127281D58002C36AD /* AgoraRtcKit in Frameworks */,
 				6639D4D40F5FDC5FB5D02504 /* Pods_CollaboratAR__iOS_.framework in Frameworks */,
+				F3CA97CC27281CC9002C36AD /* RealityUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +157,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F32DCB7C26777667007D09E4 /* BuildFile in Frameworks */,
 				46092A160FCDC0E20A5DCB09 /* Pods_RTM_CollaboratAR__macOS_.framework in Frameworks */,
+				F3AC48F9272AB4CC00CE2B4B /* RealityFoundation.framework in Frameworks */,
+				F3CA97CE27281CDF002C36AD /* RealityUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,13 +174,13 @@
 				F2D8F61E1AE3C5633971F4D5 /* Pods-RTM-CollaboratAR (macOS).debug.xcconfig */,
 				4D00A680AF8776A8977BE8D6 /* Pods-RTM-CollaboratAR (macOS).release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		F353FEBB26CD5E2F00EDAA9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3AC48F7272AB47300CE2B4B /* RealityFoundation.framework */,
 				D18E78A074B3B69FDAACA0AE /* Pods_CollaboratAR__iOS_.framework */,
 				0EF0498379F8DA6822F455A1 /* Pods_RTM_CollaboratAR__macOS_.framework */,
 			);
@@ -197,9 +212,12 @@
 				F300FBF02678E34E009A2B32 /* CollaboratARDelegateEntity.swift */,
 				F300FBED2678D30D009A2B32 /* ChannelData.swift */,
 				F3B7647726668C0400258A16 /* CollabSceneEntity.swift */,
+				F31C3039272AFC4800F7002D /* SolarFloorShaders.metal */,
+				F3AC48F427294D4C00CE2B4B /* SolarSystemEntity.swift */,
 				F3905105266A51E800E2B8E7 /* CollabModel.swift */,
 				F300FBEA2678B21E009A2B32 /* PeerEntity.swift */,
 				F3B7647426668BCD00258A16 /* GlobeEntity.swift */,
+				F3CA97C62728165F002C36AD /* SatelliteEntity.swift */,
 				F3CD995F26569112005D8C06 /* TapSpot.swift */,
 				F3CD990C26503B5F005D8C06 /* Assets.xcassets */,
 				F3CD99372652BF4F005D8C06 /* USDZ */,
@@ -237,6 +255,7 @@
 		F3CD99372652BF4F005D8C06 /* USDZ */ = {
 			isa = PBXGroup;
 			children = (
+				F3CA97D527282F92002C36AD /* Satellite_low_poly.usdz */,
 				F3A6E252269848A0001F0851 /* forest_ground.usdz */,
 				F3C9DB3C268357F300114DF2 /* forest_rock.usdz */,
 				F3C9DB40268357F300114DF2 /* forest_shrub.usdz */,
@@ -276,9 +295,9 @@
 			);
 			name = "CollaboratAR (iOS)";
 			packageProductDependencies = (
-				F32DCB792677764B007D09E4 /* SwiftPackageProductDependency */,
-				F353FEB626CD5D9E00EDAA9C /* SwiftPackageProductDependency */,
-				F353FEB926CD5DCD00EDAA9C /* SwiftPackageProductDependency */,
+				F3CA97CB27281CC9002C36AD /* RealityUI */,
+				F3CA97D027281D58002C36AD /* AgoraRtcKit */,
+				F3CA97D327281DFF002C36AD /* AgoraRtmKit */,
 			);
 			productName = "RTM-CollaboratAR (iOS)";
 			productReference = F3CD991126503B5F005D8C06 /* RTM-CollaboratAR.app */;
@@ -300,7 +319,7 @@
 			);
 			name = "RTM-CollaboratAR (macOS)";
 			packageProductDependencies = (
-				F32DCB7B26777667007D09E4 /* SwiftPackageProductDependency */,
+				F3CA97CD27281CDF002C36AD /* RealityUI */,
 			);
 			productName = "RTM-CollaboratAR (macOS)";
 			productReference = F3CD991926503B5F005D8C06 /* RTM-CollaboratAR.app */;
@@ -333,9 +352,9 @@
 			);
 			mainGroup = F3CD990426503B52005D8C06;
 			packageReferences = (
-				F32DCB782677764B007D09E4 /* RemoteSwiftPackageReference */,
-				F353FEB526CD5D9E00EDAA9C /* RemoteSwiftPackageReference */,
-				F353FEB826CD5DCD00EDAA9C /* RemoteSwiftPackageReference */,
+				F3CA97CA27281CC9002C36AD /* XCRemoteSwiftPackageReference "RealityUI" */,
+				F3CA97CF27281D58002C36AD /* XCRemoteSwiftPackageReference "AgoraAudio_iOS" */,
+				F3CA97D227281DFF002C36AD /* XCRemoteSwiftPackageReference "AgoraRTM_iOS" */,
 			);
 			productRefGroup = F3CD991226503B5F005D8C06 /* Products */;
 			projectDirPath = "";
@@ -367,6 +386,7 @@
 				F3C9DB4F26835ACE00114DF2 /* forest_tree2.usdz in Resources */,
 				F3538090268234AA00B4277E /* globe.usdz in Resources */,
 				F3A6E24526961914001F0851 /* desert_rock2.usdz in Resources */,
+				F3CA97D627282F93002C36AD /* Satellite_low_poly.usdz in Resources */,
 				F3C9DB41268357F300114DF2 /* forest_rock.usdz in Resources */,
 				F3C9DB45268357F300114DF2 /* forest_tree1.usdz in Resources */,
 				F3A6E24326961914001F0851 /* desert_rock1.usdz in Resources */,
@@ -392,6 +412,7 @@
 				F3C9DB5026835ACE00114DF2 /* forest_tree2.usdz in Resources */,
 				F3538091268234AA00B4277E /* globe.usdz in Resources */,
 				F3A6E24626961914001F0851 /* desert_rock2.usdz in Resources */,
+				F3CA97D727282F93002C36AD /* Satellite_low_poly.usdz in Resources */,
 				F3C9DB42268357F300114DF2 /* forest_rock.usdz in Resources */,
 				F3C9DB46268357F300114DF2 /* forest_tree1.usdz in Resources */,
 				F3A6E24426961914001F0851 /* desert_rock1.usdz in Resources */,
@@ -469,10 +490,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3AC48F527294D4C00CE2B4B /* SolarSystemEntity.swift in Sources */,
 				F3B7647526668BCD00258A16 /* GlobeEntity.swift in Sources */,
 				F3CD991F26503B5F005D8C06 /* ContentView.swift in Sources */,
 				F3A23F1B2680A69B005FD3CA /* AppKeys.swift in Sources */,
 				F300FBF12678E34E009A2B32 /* CollaboratARDelegateEntity.swift in Sources */,
+				F3CA97C72728165F002C36AD /* SatelliteEntity.swift in Sources */,
 				F3905106266A51E800E2B8E7 /* CollabModel.swift in Sources */,
 				F300FBEE2678D30D009A2B32 /* ChannelData.swift in Sources */,
 				F3A6E24E26975391001F0851 /* CoachingOverlayView.swift in Sources */,
@@ -482,6 +505,7 @@
 				F3B7647826668C0400258A16 /* CollabSceneEntity.swift in Sources */,
 				F3B4A6DE26738A7E002BA1F2 /* CollaborationExpEntity+RTM.swift in Sources */,
 				F3CD991D26503B5F005D8C06 /* RTM_CollaboratARApp.swift in Sources */,
+				F31C303A272AFC4800F7002D /* SolarFloorShaders.metal in Sources */,
 				F3B7647B2666905100258A16 /* CustomARView.swift in Sources */,
 				F3CD996026569112005D8C06 /* TapSpot.swift in Sources */,
 			);
@@ -496,7 +520,10 @@
 				F3A23F1C2680A69B005FD3CA /* AppKeys.swift in Sources */,
 				F300FBF22678E34E009A2B32 /* CollaboratARDelegateEntity.swift in Sources */,
 				F3905107266A51E800E2B8E7 /* CollabModel.swift in Sources */,
+				F3AC48F627294D4C00CE2B4B /* SolarSystemEntity.swift in Sources */,
+				F3CA97C827281660002C36AD /* SatelliteEntity.swift in Sources */,
 				F300FBEF2678D30D009A2B32 /* ChannelData.swift in Sources */,
+				F31C303B272AFC4800F7002D /* SolarFloorShaders.metal in Sources */,
 				F388940F2680F47900DC6293 /* USDZPickerItem.swift in Sources */,
 				F3CD99362652AA7D005D8C06 /* CollaborationExpEntity.swift in Sources */,
 				F300FBEC2678B21E009A2B32 /* PeerEntity.swift in Sources */,
@@ -629,7 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 278494H572;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -653,7 +680,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 278494H572;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -754,51 +781,51 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F32DCB782677764B007D09E4 /* RemoteSwiftPackageReference */ = {
+		F3CA97CA27281CC9002C36AD /* XCRemoteSwiftPackageReference "RealityUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:maxxfrazer/RealityUI.git";
+			repositoryURL = "https://github.com/maxxfrazer/RealityUI";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
+				minimumVersion = 1.0.0;
 			};
 		};
-		F353FEB526CD5D9E00EDAA9C /* RemoteSwiftPackageReference */ = {
+		F3CA97CF27281D58002C36AD /* XCRemoteSwiftPackageReference "AgoraAudio_iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:AgoraIO/AgoraAudio_iOS.git";
+			repositoryURL = "https://github.com/AgoraIO/AgoraAudio_iOS";
 			requirement = {
-				branch = 3.5.0.1;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		F3CA97D227281DFF002C36AD /* XCRemoteSwiftPackageReference "AgoraRTM_iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AgoraIO/AgoraRTM_iOS";
+			requirement = {
+				branch = "ipv6-patch";
 				kind = branch;
-			};
-		};
-		F353FEB826CD5DCD00EDAA9C /* RemoteSwiftPackageReference */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:AgoraIO/AgoraRTM_iOS.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F32DCB792677764B007D09E4 /* SwiftPackageProductDependency */ = {
+		F3CA97CB27281CC9002C36AD /* RealityUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F32DCB782677764B007D09E4 /* RemoteSwiftPackageReference */;
+			package = F3CA97CA27281CC9002C36AD /* XCRemoteSwiftPackageReference "RealityUI" */;
 			productName = RealityUI;
 		};
-		F32DCB7B26777667007D09E4 /* SwiftPackageProductDependency */ = {
+		F3CA97CD27281CDF002C36AD /* RealityUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F32DCB782677764B007D09E4 /* RemoteSwiftPackageReference */;
+			package = F3CA97CA27281CC9002C36AD /* XCRemoteSwiftPackageReference "RealityUI" */;
 			productName = RealityUI;
 		};
-		F353FEB626CD5D9E00EDAA9C /* SwiftPackageProductDependency */ = {
+		F3CA97D027281D58002C36AD /* AgoraRtcKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F353FEB526CD5D9E00EDAA9C /* RemoteSwiftPackageReference */;
+			package = F3CA97CF27281D58002C36AD /* XCRemoteSwiftPackageReference "AgoraAudio_iOS" */;
 			productName = AgoraRtcKit;
 		};
-		F353FEB926CD5DCD00EDAA9C /* SwiftPackageProductDependency */ = {
+		F3CA97D327281DFF002C36AD /* AgoraRtmKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F353FEB826CD5DCD00EDAA9C /* RemoteSwiftPackageReference */;
+			package = F3CA97D227281DFF002C36AD /* XCRemoteSwiftPackageReference "AgoraRTM_iOS" */;
 			productName = AgoraRtmKit;
 		};
 /* End XCSwiftPackageProductDependency section */

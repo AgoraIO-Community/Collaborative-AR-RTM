@@ -16,8 +16,10 @@ import Combine
 class CollaborationExpEntity: ObservableObject {
     var globe: GlobeEntity?
     var collab: CollabSceneEntity?
+    var micEnabled: [UInt: Bool] = [:]
     var arView: ARView?
     @Published var selectedBox: HasCollabModel?
+    @Published var localMicEnabled: Bool = true
     @Published var showUSDZTray: Bool = false
     @Published var selectedUSDZ: Int = 0
     @Published var usdzOptions: [String: [String]] = [
@@ -25,10 +27,11 @@ class CollaborationExpEntity: ObservableObject {
         "forest_tree3", "forest_tree1", "forest_tree2",
         "forest_shrub", "forest_rock"],
         "Desert": [
-                "desert_tree", "desert_grass", "desert_rock1",
-                "desert_rock2", "desert_shrub1", "desert_shrub2",
-                "desert_teepee"
-            ]
+            "desert_tree", "desert_grass", "desert_rock1",
+            "desert_rock2", "desert_shrub1", "desert_shrub2",
+            "desert_teepee"
+        ],
+        "AWE": []
     ]
     var usdzForRoom: [String]? {
         switch self.collabState {
@@ -52,6 +55,7 @@ class CollaborationExpEntity: ObservableObject {
         ("Forest", "leaf"),
         ("Desert", "sun.max")
     ]
+    var specialRoom: (displayname: String, systemName: String) = ("AWE Special Event", "star.circle")
     @Published var roomStyle = 0
     var updatePositionsTimer: Timer?
     var rtmID: String = UUID().uuidString
@@ -60,6 +64,7 @@ class CollaborationExpEntity: ObservableObject {
     ]
     var rtcID: UInt?
     var rtcToRtm: [UInt: String] = [:]
+    var rtmToRtc: [String: UInt] = [:]
     var rtmKit: AgoraRtmKit!
     var channels: (lobby: AgoraRtmChannel?, collab: AgoraRtmChannel?) = (nil, nil)
     var rtcKit: AgoraRtcEngineKit!
@@ -71,8 +76,6 @@ class CollaborationExpEntity: ObservableObject {
             DispatchQueue.main.async {
                 self.showDrawer = !(self.clickedChannelData == nil)
                 self.isNewChannel = (self.clickedChannelData?.channelID ?? "") == "new"
-                print("self.isNewChannel: \(self.isNewChannel)")
-                print(self.clickedChannelData?.channelID ?? "")
                 if self.clickedChannelData == nil {
                     self.globe?.tempClickedEntity.removeFromParent()
                 }
@@ -101,7 +104,6 @@ class CollaborationExpEntity: ObservableObject {
             self.rtcKit.joinChannel(
                 byToken: AppKeys.appToken, channelId: collabData.channelID, info: nil, uid: self.rtcID ?? 0
             ) { chname, uid, _ in
-                print("joining channel!")
                 self.rtcID = uid
                 self.updatePositions()
             }
@@ -190,6 +192,7 @@ class CollaborationExpEntity: ObservableObject {
         self.selectedUSDZ = 0
         self.collab?.removeFromParent()
         self.collab = nil
+        self.updatePositionsTimer?.invalidate()
         self.channels.collab?.leave(completion: { leaveCompletion in
             if leaveCompletion != .ok {
                 print("could not leave channel")

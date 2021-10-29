@@ -28,6 +28,10 @@ class CustomARView: ARView {
 
     @objc required dynamic init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
+//        let arConfig = ARWorldTrackingConfiguration()
+//        arConfig.planeDetection = [.horizontal]
+//        self.debugOptions.insert(.showPhysics)
+//        self.session.run(arConfig)
         #if !os(iOS) || targetEnvironment(simulator)
         let cam = PerspectiveCamera()
         cam.look(at: .zero, from: [0, 1, 1], relativeTo: nil)
