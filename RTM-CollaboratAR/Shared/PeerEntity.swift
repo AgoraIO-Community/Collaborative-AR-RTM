@@ -6,6 +6,7 @@
 //
 
 import CoreGraphics
+import Foundation
 import RealityKit
 
 struct PeerData: Codable {
@@ -33,12 +34,16 @@ struct PeerDataComponent: Component, Codable {
 
 protocol HasPeer: Entity, HasModel {
     var peer: PeerDataComponent {get set}
+    var lastUpdate: Date {get set}
 }
 
 extension HasPeer {
     var peer: PeerDataComponent {
         get { self.components[PeerDataComponent.self] as! PeerDataComponent }
-        set { self.components[PeerDataComponent.self] = newValue }
+        set {
+            self.components[PeerDataComponent.self] = newValue
+            self.lastUpdate = .init()
+        }
     }
     func update(with peerData: PeerData) {
         self.stopAllAnimations()
@@ -52,7 +57,9 @@ extension HasPeer {
 }
 
 class PeerEntity: Entity, HasPeer {
+    var lastUpdate: Date
     init(with peerData: PeerData) {
+        self.lastUpdate = .init()
         super.init()
         self.peer = peerData.peerDataComponent
         self.name = self.peer.rtmID
@@ -83,5 +90,5 @@ class PeerEntity: Entity, HasPeer {
         }
     }
 
-    required init() {}
+    required init() {self.lastUpdate = .init()}
 }

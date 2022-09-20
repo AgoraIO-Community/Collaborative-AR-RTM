@@ -22,6 +22,7 @@ class CollaborationExpEntity: ObservableObject {
     @Published var localMicEnabled: Bool = true
     @Published var showUSDZTray: Bool = false
     @Published var selectedUSDZ: Int = 0
+    @Published var presentingToast: Bool = false
     @Published var usdzOptions: [String: [String]] = [
         "Forest": [
         "forest_tree3", "forest_tree1", "forest_tree2",
@@ -75,6 +76,9 @@ class CollaborationExpEntity: ObservableObject {
         didSet {
             DispatchQueue.main.async {
                 self.showDrawer = !(self.clickedChannelData == nil)
+                if self.showDrawer {
+                    CollaborationExpEntity.shared.presentingToast = false
+                }
                 self.isNewChannel = (self.clickedChannelData?.channelID ?? "") == "new"
                 if self.clickedChannelData == nil {
                     self.globe?.tempClickedEntity.removeFromParent()
@@ -236,14 +240,14 @@ class CollaborationExpEntity: ObservableObject {
         self.globe?.anchoring = AnchoringComponent(.plane(.horizontal, classification: [.floor], minimumBounds: [1,1]))
         #endif
         if globeModel.isAnchored {
-            self.globe!.spawnEarth()
+            globeModel.spawnEarth()
         } else {
             reuseCancellable = scene.subscribe(to: SceneEvents.AnchoredStateChanged.self, on: self.globe!, { anchorEvent in
                 if anchorEvent.isAnchored {
                     print("globe anchored")
                     DispatchQueue.main.async {
                         self.reuseCancellable?.cancel()
-                        self.globe!.spawnEarth()
+                        globeModel.spawnEarth()
                     }
                 }
             })
@@ -347,6 +351,13 @@ extension CollaborationExpEntity {
         }
         if let selectedBox = self.selectedBox {
             self.sendCollabData(for: selectedBox)
+        }
+        // If peer entity has no update for 3 seconds, delete
+        let last3Sec = Date(timeIntervalSinceNow: -3)
+        guard let collab = self.collab else { return }
+        for ent in collab.peerBase.children.compactMap({ $0 as? HasPeer })
+        where last3Sec > ent.lastUpdate {
+            ent.removeFromParent()
         }
     }
 }

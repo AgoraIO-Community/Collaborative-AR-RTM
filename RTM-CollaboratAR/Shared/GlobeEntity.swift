@@ -71,6 +71,7 @@ class GlobeEntity: Entity, HasAnchoring, HasClick {
                               translation: self.globeModel.position
                     )]
                 )
+                CollaborationExpEntity.shared.presentingToast = true
                 self.spawnSatellite()
             }
         })

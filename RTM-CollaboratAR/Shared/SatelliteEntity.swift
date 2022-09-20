@@ -10,7 +10,7 @@ import RealityKit
 import RealityUI
 import Combine
 
-class SatelliteEntity: Entity, HasClick {
+class SatelliteEntity: Entity { //, HasClick {
     var tapAction: ((HasClick, SIMD3<Float>?) -> Void)? = { clicked, pos in
         guard let globeEnt = clicked as? SatelliteEntity else { return }
         CollaborationExpEntity.shared.clickedChannelData = ChannelData(
@@ -71,7 +71,7 @@ class SatelliteEntity: Entity, HasClick {
 class SatelliteModel: Entity, HasClick, HasModel {
     var tapAction: ((HasClick, SIMD3<Float>?) -> Void)? = { clicked, pos in
         guard let parentSatellite = clicked.parent as? SatelliteEntity else { return }
-        parentSatellite.tapAction?(parentSatellite, pos)
+//        parentSatellite.tapAction?(parentSatellite, pos)
     }
 
 }

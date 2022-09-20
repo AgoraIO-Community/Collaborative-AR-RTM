@@ -8,6 +8,7 @@
 import SwiftUI
 import RealityKit
 import RealityUI
+import AlertToast
 #if canImport(ARKit)
 import ARKit
 #endif
@@ -81,7 +82,12 @@ struct ContentView: View {
                     JoinCollab(sharedIntroEntry: sharedIntroEntry)
                         .frame(height: 100, alignment: .bottom)
                 }
+            }.toast(isPresenting: $sharedIntroEntry.presentingToast, duration: 0){
+
+                // `.alert` is the default displayMode
+                AlertToast(displayMode: .hud, type: .regular, title: "Tap the globe or satellite to continue")
             }
+
         }
     }
     func containedView() -> AnyView? {
